@@ -46,5 +46,12 @@ notes.post('/', (req, res) => {
     }
 });
 
+// add delete note function
+app.delete('/:id', (req, res) => {
+    // get all current notes
+    // check if given id matches any
+    // delete matching note
+})
+
 
 module.exports = notes;
