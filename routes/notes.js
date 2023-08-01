@@ -1,7 +1,7 @@
 const notes = require('express').Router();
 
 // get fs functions from helpers folder
-const { readFrom, addTo } = require('../helpers/fsHelper');
+const { readFrom, overWrite, addTo } = require('../helpers/fsHelper');
 
 // get id function from helpers folder
 const idCreator = require('../helpers/idCreator');
@@ -47,10 +47,35 @@ notes.post('/', (req, res) => {
 });
 
 // add delete note function
-app.delete('/:id', (req, res) => {
+notes.delete('/:id', (req, res) => {
+    // get id number
+    const givenId = parseInt(req.params.id);
+    let index = -1;
+
     // get all current notes
-    // check if given id matches any
-    // delete matching note
+    readFrom('./db/db.json').then((data) => {
+        if(data != '') {
+            const parsedData = JSON.parse(data);
+        
+            // check for mathing id
+            for(let i = 0; i < parsedData.length; i++){
+                if(givenId === parsedData[i].id) {
+                    // save index
+                    index = i;
+                }
+            }
+    
+            if(index > -1) {
+                // delete matching note
+                parsedData.splice(index, 1);
+    
+                // update db file
+                overWrite('./db/db.json', parsedData);
+            }
+        }
+    })
+
+
 })
 
 
