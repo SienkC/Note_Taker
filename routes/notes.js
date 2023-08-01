@@ -3,6 +3,9 @@ const notes = require('express').Router();
 // get fs functions from helpers folder
 const { readFrom, addTo } = require('../helpers/fsHelper');
 
+// get id function from helpers folder
+const idCreator = require('../helpers/idCreator');
+
 // get notes
 notes.get('/', (req, res) => {
     // read the data from db file
@@ -24,8 +27,13 @@ notes.post('/', (req, res) => {
     if(req.body) {
         const note = {
             title,
-            text
+            text,
+            id: idCreator()
         };
+
+        // test
+        console.log(note);
+
 
         // add new note to notes db
         addTo('./db/db.json', note);
