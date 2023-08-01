@@ -73,9 +73,9 @@ notes.delete('/:id', (req, res) => {
                 overWrite('./db/db.json', parsedData);
             }
         }
+        // show successful addition note
+        res.json('Note was deleted');
     })
-
-
 })
 
 
