@@ -31,10 +31,6 @@ notes.post('/', (req, res) => {
             id: idCreator()
         };
 
-        // test
-        console.log(note);
-
-
         // add new note to notes db
         addTo('./db/db.json', note);
         
