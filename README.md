@@ -26,6 +26,7 @@ App to write and save notes
   ## Usage <a id="usage"></a>
 
   To use the Note Taker app, type out a note title and text in the provided space on the right side of the page. Click the floppy disk icon that appears to save the note in the list on the left of the page. Click on any note on the left to have it appear in the text space on the right. Click the plus icon to be able to add notes again. Click the trash can icon next to any note to delete it from the list.
+  Click on the link for the deployed app: [Note Taker](https://guarded-reaches-33756-98317bd521b3.herokuapp.com/)
 
   Screenshot of Home Page:
   ![Screenshot of Home Page](./public/assets/images/homescreenshot.png)
